@@ -3,7 +3,10 @@
  */
 package com.jyq.jrpc.reference.impl;
 
+
 import com.jyq.jrpc.reference.Portocol;
+
+
 
 /**
  *
@@ -12,9 +15,17 @@ import com.jyq.jrpc.reference.Portocol;
  */
 public class DubboPortocol  implements Portocol {
 
+
+
+
     @Override
     public void export() {
+        //创建代理类
 
+        //创建节点
+       // ZkUtils.createNode();
+        //开启netty
+      //  new NettyServer();
     }
 
 }
