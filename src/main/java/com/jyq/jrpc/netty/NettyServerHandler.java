@@ -1,6 +1,7 @@
 package com.jyq.jrpc.netty;
 
 import com.jyq.jrpc.model.Request.Request;
+import com.jyq.jrpc.serializer.KryoSerializer;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerAdapter;
@@ -16,14 +17,13 @@ public class NettyServerHandler extends ChannelHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
 
         ByteBuf buf = (ByteBuf) msg;
-
         String recieved = getMessage(buf);
         System.err.println("服务器接收到客户端消息：" + recieved);
-
         try {
             //调用服务
-            Request request = new Request();
-            request.getmData();
+            Request request = (Request)KryoSerializer.readFromByteArray((byte[]) msg);
+
+
             ctx.writeAndFlush(getSendByteBuf("你好，客户端"));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
