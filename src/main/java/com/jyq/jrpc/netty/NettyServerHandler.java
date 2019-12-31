@@ -1,5 +1,6 @@
 package com.jyq.jrpc.netty;
 
+import com.jyq.jrpc.model.Request.Request;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerAdapter;
@@ -8,6 +9,8 @@ import io.netty.channel.ChannelHandlerContext;
 import java.io.UnsupportedEncodingException;
 
 public class NettyServerHandler extends ChannelHandlerAdapter {
+
+
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
@@ -18,8 +21,10 @@ public class NettyServerHandler extends ChannelHandlerAdapter {
         System.err.println("服务器接收到客户端消息：" + recieved);
 
         try {
+            //调用服务
+            Request request = new Request();
+            request.getmData();
             ctx.writeAndFlush(getSendByteBuf("你好，客户端"));
-            System.out.println("服务器回复消息：你好，客户端");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

@@ -17,10 +17,14 @@ public class Response implements Serializable {
      */
     String id;
 
+
     /**
+
      * 返回结果
      */
     Object result;
+
+    private String mErrorMsg;
 
     long timeout;
 
@@ -48,6 +52,12 @@ public class Response implements Serializable {
         this.result = result;
     }
 
+    public String getmErrorMsg() {
+        return mErrorMsg;
+    }
 
+    public void setmErrorMsg(String mErrorMsg) {
+        this.mErrorMsg = mErrorMsg;
+    }
 
 }
