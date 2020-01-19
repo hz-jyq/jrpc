@@ -18,8 +18,8 @@ import com.bytebeats.codelab.javassist.util.ClassUtils;
 /**
 /**
  *
- * @author wb-jyq573332
- * @version $Id: ProxyGenerator.java, v 0.1 2020年01月02日 19:19 wb-jyq573332 Exp $
+ * @author 
+ * @version $Id: ProxyGenerator.java
  */
 public class ProxyGenerator {
 
