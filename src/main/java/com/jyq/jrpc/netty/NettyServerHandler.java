@@ -15,15 +15,10 @@ public class NettyServerHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
-
-        ByteBuf buf = (ByteBuf) msg;
-        String recieved = getMessage(buf);
-        System.err.println("服务器接收到客户端消息：" + recieved);
         try {
             //调用服务
             Request request = (Request)KryoSerializer.readFromByteArray((byte[]) msg);
-
-
+            request.getmData();
             ctx.writeAndFlush(getSendByteBuf("你好，客户端"));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
