@@ -5,8 +5,6 @@ package com.jyq.jrpc.configuration;
 
 /**
  *
- * @author wb-jyq573332
- * @version $Id: JrpcProperties.java, v 0.1 2020年01月19日 15:25 wb-jyq573332 Exp $
  */
 public  class JrpcProperties {
 
